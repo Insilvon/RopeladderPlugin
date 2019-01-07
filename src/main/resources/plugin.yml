@@ -1,0 +1,5 @@
+name: Ropeladder
+version: ${project.version}
+main: me.aetheria.insilvon.ropeladder.Ropeladder
+authors: [Insilvon]
+description: Drops ropeladders
