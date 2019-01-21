@@ -38,13 +38,15 @@ public final class Ropeladder extends JavaPlugin implements Listener {
         Block b = e.getBlock();
         Location placed = b.getLocation();
         int pos = placed.getBlockY()-1;
-        while (pos>0){
-            Location temp = new Location(placed.getWorld(), placed.getBlockX(), pos, placed.getBlockZ());
-            if (temp.getBlock().getType()!= Material.LADDER) break;
-            Block currentBlock = temp.getBlock();
-            currentBlock.setType(Material.AIR);
+        if (b.getType() == Material.LADDER && player.isSneaking()) {
+            while (pos > 0) {
+                Location temp = new Location(placed.getWorld(), placed.getBlockX(), pos, placed.getBlockZ());
+                if (temp.getBlock().getType() != Material.LADDER) break;
+                Block currentBlock = temp.getBlock();
+                currentBlock.setType(Material.AIR);
 //            player.getInventory().addItem(new ItemStack(Material.LADDER));
-            pos--;
+                pos--;
+            }
         }
 //        player.getInventory().addItem(new ItemStack(Material.LADDER));
     }
